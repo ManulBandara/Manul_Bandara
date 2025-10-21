@@ -1,0 +1,2021 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pubudu Ishan | Software Engineer</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --success: #10b981;
+            --bg: #0a0a0f;
+            --card: rgba(17, 17, 27, 0.8);
+            --text: #f8fafc;
+            --text-dim: #94a3b8;
+            --border: rgba(99, 102, 241, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at top, rgba(99, 102, 241, 0.15), transparent 60%);
+        }
+
+        .bg-grid::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(50px);
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dim);
+            padding: 0.7rem 1.2rem;
+            border-radius: 10px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h4 {
+            color: var(--primary);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero-content h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .hero-content h3 {
+            font-size: 1.8rem;
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-content p {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--card);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2rem;
+            width: 100%;
+            max-width: 450px;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            opacity: 0.1;
+            animation: float 10s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-30px, 30px);
+            }
+        }
+
+        .profile-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.1));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-placeholder i {
+            font-size: 8rem;
+            color: var(--primary);
+            opacity: 0.5;
+        }
+
+        section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-image {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(20px);
+        }
+
+        .about-image i {
+            font-size: 8rem;
+            color: var(--primary);
+            opacity: 0.5;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            color: var(--text-dim);
+            margin-bottom: 1.2rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .stat-card h4 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .stat-card p {
+            color: var(--text-dim);
+            font-size: 1rem;
+        }
+
+        .skills-grid {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            padding: 2rem 0;
+        }
+
+        .skills-track {
+            display: flex;
+            gap: 1.5rem;
+            animation: skillsScroll 30s linear infinite;
+        }
+
+        .skills-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes skillsScroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .skill-card {
+            min-width: 140px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 2rem 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            border-color: var(--primary);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card p {
+            color: var(--text-dim);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .experience-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .exp-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .exp-badge.past {
+            background: var(--text-dim);
+        }
+
+        .exp-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .exp-icon {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .exp-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .exp-role {
+            color: var(--text-dim);
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .exp-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .exp-description {
+            color: var(--text-dim);
+            line-height: 1.7;
+            margin: 1rem 0;
+        }
+
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            background: var(--card);
+            color: var(--text-dim);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 50px rgba(99, 102, 241, 0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+        }
+
+        .project-category {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .project-date {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-content p {
+            color: var(--text-dim);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .cert-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .cert-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .cert-card p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+            backdrop-filter: blur(20px);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        footer {
+            background: rgba(10, 10, 15, 0.8);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        footer p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            opacity: 0;
+            visibility: hidden;
+            backdrop-filter: blur(20px);
+            color: var(--text);
+            font-size: 1.3rem;
+            z-index: 998;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .chatbot-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            cursor: pointer;
+            z-index: 999;
+            animation: chatbotEntrance 0.6s ease-out;
+        }
+
+        @keyframes chatbotEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chatbot-btn-text {
+            background: linear-gradient(135deg, #5B9FED, #4A8FDB);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            box-shadow: 0 6px 20px rgba(91, 159, 237, 0.35);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .chatbot-btn-text:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(91, 159, 237, 0.45);
+        }
+
+        .chatbot-btn-text span {
+            color: white;
+            font-weight: 600;
+            font-size: 0.95rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .chatbot-btn-text .name {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .chatbot-robot {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            animation: robotFloat 3s ease-in-out infinite;
+            position: relative;
+        }
+
+        @keyframes robotFloat {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .chatbot-robot::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #5B9FED, #4A8FDB);
+            border-radius: 50%;
+            opacity: 0.08;
+            animation: robotPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes robotPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.08;
+            }
+
+            50% {
+                transform: scale(1.15);
+                opacity: 0;
+            }
+        }
+
+        .robot-body {
+            width: 36px;
+            height: 46px;
+            background: white;
+            border-radius: 18px;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 6px;
+        }
+
+        .robot-head {
+            width: 32px;
+            height: 18px;
+            background: linear-gradient(135deg, #5B9FED, #4A8FDB);
+            border-radius: 10px 10px 7px 7px;
+            position: relative;
+            margin-bottom: 3px;
+            box-shadow: 0 2px 6px rgba(91, 159, 237, 0.25);
+        }
+
+        .robot-visor {
+            width: 24px;
+            height: 7px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 3px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+        }
+
+        .robot-eye {
+            width: 3px;
+            height: 3px;
+            background: #4A8FDB;
+            border-radius: 50%;
+            animation: robotBlink 4s infinite;
+        }
+
+        @keyframes robotBlink {
+
+            0%,
+            96%,
+            100% {
+                opacity: 1;
+            }
+
+            98% {
+                opacity: 0;
+            }
+        }
+
+        .robot-antenna {
+            width: 2px;
+            height: 5px;
+            background: #5B9FED;
+            border-radius: 1px;
+            position: absolute;
+            top: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .robot-antenna::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #5B9FED;
+            border-radius: 50%;
+            top: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 8px rgba(91, 159, 237, 0.8), 0 0 12px rgba(91, 159, 237, 0.4);
+            animation: antennaGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes antennaGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 8px rgba(91, 159, 237, 0.8), 0 0 12px rgba(91, 159, 237, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 12px rgba(91, 159, 237, 1), 0 0 20px rgba(91, 159, 237, 0.6);
+            }
+        }
+
+        .robot-chest {
+            width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+        }
+
+        .robot-light {
+            width: 5px;
+            height: 5px;
+            background: linear-gradient(135deg, #5B9FED, #4A8FDB);
+            border-radius: 50%;
+            box-shadow: 0 0 6px rgba(91, 159, 237, 0.6);
+            animation: lightPulse 2s ease-in-out infinite;
+        }
+
+        .robot-light:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        @keyframes lightPulse {
+
+            0%,
+            100% {
+                opacity: 0.6;
+                box-shadow: 0 0 6px rgba(91, 159, 237, 0.6);
+            }
+
+            50% {
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(91, 159, 237, 1);
+            }
+        }
+
+        .robot-arm {
+            width: 7px;
+            height: 14px;
+            background: white;
+            border-radius: 7px;
+            position: absolute;
+            top: 22px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .robot-arm.left {
+            left: -3px;
+        }
+
+        .robot-arm.right {
+            right: -3px;
+        }
+
+        .chatbot-toggle:hover .chatbot-robot {
+            animation: robotFloat 3s ease-in-out infinite, robotShake 0.5s ease-in-out;
+        }
+
+        @keyframes robotShake {
+
+            0%,
+            100% {
+                transform: rotate(0deg) translateY(0);
+            }
+
+            25% {
+                transform: rotate(-4deg) translateY(-4px);
+            }
+
+            75% {
+                transform: rotate(4deg) translateY(-4px);
+            }
+        }
+
+        .chatbot-container {
+            position: fixed;
+            bottom: 6rem;
+            right: 2rem;
+            width: 380px;
+            height: 550px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            display: none;
+            flex-direction: column;
+            z-index: 999;
+            overflow: hidden;
+        }
+
+        .chatbot-container.active {
+            display: flex;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, #5B9FED, #4A8FDB);
+            padding: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-header h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .chatbot-header .robot-icon {
+            width: 28px;
+            height: 28px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .chatbot-header .robot-icon i {
+            font-size: 0.9rem;
+            color: #4A8FDB;
+        }
+
+        .chatbot-close {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .chatbot-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 1.5rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .chat-message {
+            display: flex;
+            gap: 0.8rem;
+            animation: messageSlide 0.3s ease-out;
+        }
+
+        @keyframes messageSlide {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chat-message.bot {
+            flex-direction: row;
+        }
+
+        .chat-message.user {
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .chat-message.bot .message-avatar {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .chat-message.user .message-avatar {
+            background: var(--success);
+        }
+
+        .message-content {
+            max-width: 75%;
+            padding: 0.8rem 1.2rem;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .chat-message.bot .message-content {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid var(--border);
+        }
+
+        .chat-message.user .message-content {
+            background: var(--primary);
+            color: white;
+        }
+
+        .chatbot-input-area {
+            padding: 1rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .chatbot-input {
+            flex: 1;
+            padding: 0.8rem 1.2rem;
+            background: rgba(99, 102, 241, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            color: var(--text);
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+
+        .chatbot-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .chatbot-send {
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .chatbot-send:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        .quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .quick-reply {
+            padding: 0.5rem 1rem;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quick-reply:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background: rgba(10, 10, 15, 0.95);
+                width: 100%;
+                padding: 2rem;
+                border-bottom: 1px solid var(--border);
+                transition: left 0.3s;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .profile-card {
+                height: 400px;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .skill-card {
+                min-width: 120px;
+                padding: 1.5rem 1rem;
+            }
+
+            .skills-track {
+                animation: skillsScroll 25s linear infinite;
+            }
+
+            .experience-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chatbot-container {
+                width: calc(100% - 2rem);
+                right: 1rem;
+                bottom: 6rem;
+            }
+
+            .chatbot-toggle {
+                bottom: 1rem;
+                right: 1rem;
+                gap: 0.6rem;
+            }
+
+            .chatbot-btn-text {
+                padding: 0.6rem 1.2rem;
+            }
+
+            .chatbot-btn-text span {
+                font-size: 0.85rem;
+            }
+
+            .chatbot-btn-text .name {
+                font-size: 0.9rem;
+            }
+
+            .chatbot-robot {
+                width: 50px;
+                height: 50px;
+            }
+
+            .robot-body {
+                width: 30px;
+                height: 40px;
+                padding-top: 5px;
+            }
+
+            .robot-head {
+                width: 28px;
+                height: 16px;
+            }
+
+            .robot-visor {
+                width: 20px;
+                height: 6px;
+            }
+
+            .robot-eye {
+                width: 2.5px;
+                height: 2.5px;
+            }
+
+            .robot-arm {
+                width: 6px;
+                height: 12px;
+                top: 20px;
+            }
+
+            .robot-arm.left {
+                left: -2px;
+            }
+
+            .robot-arm.right {
+                right: -2px;
+            }
+
+            .scroll-top {
+                width: 45px;
+                height: 45px;
+                bottom: 1rem;
+                left: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-grid"></div>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-code"></i></div><span>Pubudu<span
+                        style="color: var(--primary)">.</span>Ishan</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="#work"><i class="fas fa-briefcase"></i> Work</a></li>
+                <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="#projects"><i class="fas fa-laptop-code"></i> Projects</a></li>
+                <li><a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h4>SOFTWARE ENGINEER</h4>
+                <h1>Pubudu Ishan Wickrama Arachchi</h1>
+                <h3>Associate Software Engineer</h3>
+                <p>Passionate about creating innovative digital solutions with a focus on mobile and web technologies.
+                    Transforming ideas into elegant, user-friendly applications.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary"><i class="fas fa-download"></i> Download CV</a>
+                    <a href="#contact" class="btn btn-secondary"><i class="fas fa-paper-plane"></i> Hire Me</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-card">
+                    <div class="profile-placeholder"><i class="fas fa-user-circle"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="section-header">
+            <h2>About Me</h2>
+            <p>Get to know more about my journey and expertise</p>
+        </div>
+        <div class="about-content fade-in">
+            <div class="about-image"><i class="fas fa-laptop-code"></i></div>
+            <div class="about-text">
+                <h3>Crafting Digital Experiences with Passion</h3>
+                <p>I'm Pubudu Ishan Wickrama Arachchi, an Associate Software Engineer currently pursuing my
+                    undergraduate degree at the Faculty of Technology, University of Colombo. With a strong foundation
+                    in both mobile and web development, I specialize in creating intuitive, user-centered applications
+                    that solve real-world problems.</p>
+                <p>My journey in software engineering has equipped me with expertise in modern technologies including
+                    Flutter, Vue.js, Laravel, React and various backend frameworks. I'm passionate about UI/UX design
+                    and believe that great code should be matched with exceptional user experience.</p>
+            </div>
+        </div>
+        <div class="stats">
+            <div class="stat-card fade-in">
+                <h4>1+</h4>
+                <p>Years Experience</p>
+            </div>
+            <div class="stat-card fade-in">
+                <h4>10+</h4>
+                <p>Projects Contribution</p>
+            </div>
+            <div class="stat-card fade-in">
+                <h4>12+</h4>
+                <p>Public Repositories</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="section-header">
+            <h2>Technical Skills</h2>
+            <p>Technologies I work with</p>
+        </div>
+        <div class="skills-grid">
+            <div class="skills-track">
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-react"></i></div>
+                    <p>React</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-laravel"></i></div>
+                    <p>Laravel</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-php"></i></div>
+                    <p>PHP</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <p>SQL</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-server"></i></div>
+                    <p>MS SQL</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-figma"></i></div>
+                    <p>Figma</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-js"></i></div>
+                    <p>JavaScript</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <p>SQLite</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-react"></i></div>
+                    <p>React</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-laravel"></i></div>
+                    <p>Laravel</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-php"></i></div>
+                    <p>PHP</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <p>SQL</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-server"></i></div>
+                    <p>MS SQL</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-figma"></i></div>
+                    <p>Figma</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-js"></i></div>
+                    <p>JavaScript</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <p>SQLite</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work">
+        <div class="section-header">
+            <h2>Work Experience</h2>
+            <p>My professional journey and key contributions</p>
+        </div>
+        <div class="experience-grid">
+            <div class="experience-card fade-in">
+                <span class="exp-badge">CURRENT</span>
+                <div class="exp-header">
+                    <div class="exp-icon"><i class="fas fa-briefcase"></i></div>
+                    <div class="exp-info">
+                        <h3>LAUGFS Holdings Limited</h3>
+                        <p class="exp-role">Associate Software Engineer</p>
+                        <div class="exp-meta">
+                            <span><i class="far fa-calendar"></i> August 2024 - Present</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="exp-description">Working as an Associate Software Engineer at LAUGFS Holdings Limited,
+                    focusing on developing and maintaining scalable web and mobile applications using modern
+                    technologies.</p>
+            </div>
+
+            <div class="experience-card fade-in">
+                <span class="exp-badge past">PAST</span>
+                <div class="exp-header">
+                    <div class="exp-icon"><i class="fas fa-briefcase"></i></div>
+                    <div class="exp-info">
+                        <h3>LAUGFS Holdings Limited</h3>
+                        <p class="exp-role">Software Engineer (Intern)</p>
+                        <div class="exp-meta">
+                            <span><i class="far fa-calendar"></i> February 2024 - August 2024</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="exp-description">Completed internship as Software Engineer at LAUGFS Holdings Limited, gaining
+                    hands-on experience in web and mobile application development.</p>
+            </div>
+
+            <div class="experience-card fade-in">
+                <span class="exp-badge past">PAST</span>
+                <div class="exp-header">
+                    <div class="exp-icon"><i class="fas fa-briefcase"></i></div>
+                    <div class="exp-info">
+                        <h3>People's Bank</h3>
+                        <p class="exp-role">Trainee</p>
+                        <div class="exp-meta">
+                            <span><i class="far fa-calendar"></i> January 2020 - June 2021</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Kamburupitiya, Sri Lanka</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="exp-description">Completed trainee program at People's Bank, gaining valuable experience in
+                    banking operations, financial management, and customer service.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="section-header">
+            <h2>Education</h2>
+            <p>My academic background and qualifications</p>
+        </div>
+        <div class="experience-grid">
+            <div class="experience-card fade-in">
+                <span class="exp-badge">ONGOING</span>
+                <div class="exp-header">
+                    <div class="exp-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="exp-info">
+                        <h3>University of Colombo</h3>
+                        <p class="exp-role">Bachelor of ICT (Honours)</p>
+                        <div class="exp-meta">
+                            <span><i class="far fa-calendar"></i> January 2021 - Present</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="exp-description">Currently pursuing undergraduate degree in Information and Communication
+                    Technology at Faculty of Technology.</p>
+            </div>
+
+            <div class="experience-card fade-in">
+                <span class="exp-badge past">COMPLETED</span>
+                <div class="exp-header">
+                    <div class="exp-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="exp-info">
+                        <h3>Mahinda Rajapaksa College</h3>
+                        <p class="exp-role">G.C.E. Advanced Level</p>
+                        <div class="exp-meta">
+                            <span><i class="far fa-calendar"></i> 2017 - 2019</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Matara, Sri Lanka</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="exp-description">Completed Advanced Level examination in Technology stream.</p>
+            </div>
+
+            <div class="experience-card fade-in">
+                <span class="exp-badge past">COMPLETED</span>
+                <div class="exp-header">
+                    <div class="exp-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="exp-info">
+                        <h3>Godapitiya Central College</h3>
+                        <p class="exp-role">G.C.E. Ordinary Level</p>
+                        <div class="exp-meta">
+                            <span><i class="far fa-calendar"></i> 2011 - 2016</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Matara, Sri Lanka</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="exp-description">Completed Ordinary Level examination with excellent results.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="section-header">
+            <h2>Projects</h2>
+            <p>Showcasing my work and creative solutions</p>
+        </div>
+        <div class="project-filters">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Web Application</button>
+            <button class="filter-btn">Mobile Application</button>
+            <button class="filter-btn">QA Automation</button>
+            <button class="filter-btn">Desktop Application</button>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card fade-in" data-category="WEB APPLICATION">
+                <div class="project-image"><i class="fas fa-briefcase"></i><span class="project-category">WEB
+                        APPLICATION</span></div>
+                <div class="project-content">
+                    <h3>Portfolio.Me</h3>
+                    <p class="project-date"><i class="far fa-calendar"></i> October 2025</p>
+                    <p>A personal portfolio website with modern design, showcasing projects and skills with exceptional
+                        UI/UX.</p>
+                </div>
+            </div>
+
+            <div class="project-card fade-in" data-category="MOBILE APPLICATION">
+                <div class="project-image"><i class="fas fa-mobile-alt"></i><span class="project-category">MOBILE
+                        APPLICATION</span></div>
+                <div class="project-content">
+                    <h3>Currents - News App</h3>
+                    <p class="project-date"><i class="far fa-calendar"></i> April 2025</p>
+                    <p>A native Android application designed for browsing and reading news articles with intuitive
+                        navigation.</p>
+                </div>
+            </div>
+
+            <div class="project-card fade-in" data-category="QA AUTOMATION">
+                <div class="project-image"><i class="fas fa-vial"></i><span class="project-category">QA
+                        AUTOMATION</span></div>
+                <div class="project-content">
+                    <h3>Test Automation for OrangeHRM</h3>
+                    <p class="project-date"><i class="far fa-calendar"></i> April 2025</p>
+                    <p>Comprehensive testing scenarios for the OrangeHRM system using automated testing frameworks.</p>
+                </div>
+            </div>
+
+            <div class="project-card fade-in" data-category="MOBILE APPLICATION">
+                <div class="project-image"><i class="fas fa-heartbeat"></i><span class="project-category">MOBILE
+                        APPLICATION</span></div>
+                <div class="project-content">
+                    <h3>BMI Calculator</h3>
+                    <p class="project-date"><i class="far fa-calendar"></i> June 2023</p>
+                    <p>The BMI Calculator is my first Flutter project, designed to be a simple and effective health
+                        tracking tool.</p>
+                </div>
+            </div>
+
+            <div class="project-card fade-in" data-category="WEB APPLICATION">
+                <div class="project-image"><i class="fas fa-shopping-cart"></i><span class="project-category">WEB
+                        APPLICATION</span></div>
+                <div class="project-content">
+                    <h3>E-Commerce Platform</h3>
+                    <p class="project-date"><i class="far fa-calendar"></i> March 2025</p>
+                    <p>Full-featured online store with shopping cart, payment integration, and admin dashboard.</p>
+                </div>
+            </div>
+
+            <div class="project-card fade-in" data-category="DESKTOP APPLICATION">
+                <div class="project-image"><i class="fas fa-desktop"></i><span class="project-category">DESKTOP
+                        APPLICATION</span></div>
+                <div class="project-content">
+                    <h3>Task Management System</h3>
+                    <p class="project-date"><i class="far fa-calendar"></i> February 2025</p>
+                    <p>Desktop application for managing tasks and projects with team collaboration features.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="section-header">
+            <h2>Certifications</h2>
+            <p>Professional certifications and achievements</p>
+        </div>
+        <div class="cert-grid">
+            <div class="cert-card fade-in">
+                <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                <h3>Add Your Certifications</h3>
+                <p>Upload certification images</p>
+                <p class="cert-date">Coming Soon</p>
+            </div>
+            <div class="cert-card fade-in">
+                <div class="cert-icon"><i class="fas fa-award"></i></div>
+                <h3>Professional Certificates</h3>
+                <p>Industry recognized certifications</p>
+                <p class="cert-date">Add your credentials here</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-header">
+            <h2>Get In Touch</h2>
+            <p>Have a project in mind or just want to say hi? I'd love to hear from you!</p>
+        </div>
+        <div class="contact-content fade-in">
+            <form class="contact-form" id="contactForm">
+                <div class="form-group"><input type="text" placeholder="Your Name" required></div>
+                <div class="form-group"><input type="email" placeholder="Your Email" required></div>
+                <div class="form-group"><input type="text" placeholder="Subject"></div>
+                <div class="form-group"><textarea placeholder="Your Message" required></textarea></div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;"><i class="fas fa-paper-plane"></i>
+                    Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p>&copy; 2025 Pubudu Ishan Wickrama Arachchi. All rights reserved.</p>
+    </footer>
+
+    <div class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></div>
+
+    <div class="chatbot-toggle" id="chatbotToggle">
+        <div class="chatbot-btn-text">
+            <span>Chat with</span>
+            <span class="name">AI Assistant</span>
+        </div>
+        <div class="chatbot-robot">
+            <div class="robot-body">
+                <div class="robot-antenna"></div>
+                <div class="robot-head">
+                    <div class="robot-visor">
+                        <div class="robot-eye"></div>
+                        <div class="robot-eye"></div>
+                    </div>
+                </div>
+                <div class="robot-chest">
+                    <div class="robot-light"></div>
+                    <div class="robot-light"></div>
+                </div>
+                <div class="robot-arm left"></div>
+                <div class="robot-arm right"></div>
+            </div>
+        </div>
+    </div>
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <h3><span class="robot-icon"><i class="fas fa-robot"></i></span> AI Assistant</h3>
+            <button class="chatbot-close" id="chatbotClose"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="chat-message bot">
+                <div class="message-avatar"><i class="fas fa-robot"></i></div>
+                <div class="message-content">Hi! I'm the AI Assistant. I'm here to help you learn more about Pubudu.
+                    What would you like to know?</div>
+            </div>
+            <div class="quick-replies">
+                <div class="quick-reply">Skills</div>
+                <div class="quick-reply">Experience</div>
+                <div class="quick-reply">Projects</div>
+                <div class="quick-reply">Contact</div>
+            </div>
+        </div>
+        <div class="chatbot-input-area">
+            <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Type your message...">
+            <button class="chatbot-send" id="chatbotSend"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+        document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        const sections = document.querySelectorAll('section');
+        const navLinksAll = document.querySelectorAll('.nav-links a');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 200) current = section.getAttribute('id');
+            });
+            navLinksAll.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        const scrollTop = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            scrollTop.classList.toggle('visible', window.pageYOffset > 300);
+        });
+        scrollTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                const filterValue = button.textContent.trim();
+                projectCards.forEach(card => {
+                    if (filterValue === 'All') {
+                        card.style.display = 'block';
+                    } else {
+                        const category = card.querySelector('.project-category').textContent.trim();
+                        card.style.display = category === filterValue.toUpperCase() ? 'block' : 'none';
+                    }
+                });
+            });
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! I\'ll get back to you soon.');
+            e.target.reset();
+        });
+
+        const chatbotToggle = document.getElementById('chatbotToggle');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+        const chatbotClose = document.getElementById('chatbotClose');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const chatbotSend = document.getElementById('chatbotSend');
+
+        chatbotToggle.addEventListener('click', () => chatbotContainer.classList.toggle('active'));
+        chatbotClose.addEventListener('click', () => chatbotContainer.classList.remove('active'));
+
+        const responses = {
+            'skills': 'Pubudu has expertise in React, Laravel, PHP, SQL, JavaScript, Figma, and various web and mobile technologies. He specializes in full-stack development.',
+            'experience': 'Pubudu is currently working as an Associate Software Engineer at LAUGFS Holdings Limited since August 2024. He completed his internship there from February to August 2024.',
+            'projects': 'Pubudu has worked on various projects including Portfolio.Me, Currents News App, BMI Calculator, E-Commerce Platform, and Test Automation frameworks.',
+            'contact': 'You can reach out to Pubudu through the contact form on this website or connect via social media links in the footer.',
+            'education': 'Pubudu is currently pursuing a Bachelor of ICT (Honours) at the University of Colombo, Faculty of Technology.',
+            'default': 'Hi! I\'m the AI Assistant. I can help you with information about Skills, Experience, Projects, Education, or Contact details. What would you like to know?'
+        };
+
+        function addMessage(text, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${isUser ? 'user' : 'bot'}`;
+            messageDiv.innerHTML = `
+                <div class="message-avatar"><i class="fas fa-${isUser ? 'user' : 'robot'}"></i></div>
+                <div class="message-content">${text}</div>
+            `;
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        function getBotResponse(message) {
+            const lowerMessage = message.toLowerCase();
+            for (let key in responses) {
+                if (lowerMessage.includes(key)) return responses[key];
+            }
+            return responses['default'];
+        }
+
+        chatbotSend.addEventListener('click', () => {
+            const message = chatbotInput.value.trim();
+            if (message) {
+                addMessage(message, true);
+                chatbotInput.value = '';
+                setTimeout(() => addMessage(getBotResponse(message)), 500);
+            }
+        });
+
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') chatbotSend.click();
+        });
+
+        document.querySelectorAll('.quick-reply').forEach(reply => {
+            reply.addEventListener('click', function () {
+                const message = this.textContent;
+                addMessage(message, true);
+                setTimeout(() => addMessage(getBotResponse(message)), 500);
+            });
+        });
+    </script>
+</body>
+
+</html>
