@@ -4,7 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pubudu Ishan | Software Engineer</title>
+    <title>Manul Bandara | Software Engineer Portfolio - Web & Mobile Developer</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Manul Bandara - Associate Software Engineer specializing in web and mobile application development. Expert in React, Laravel, PHP, Flutter, and modern web technologies. Based in Sri Lanka.">
+    <meta name="keywords"
+        content="Manul Bandara, Software Engineer, Web Developer, Mobile Developer, React Developer, Laravel Developer, PHP Developer, Flutter Developer, Full Stack Developer, Sri Lanka Developer, LAUGFS, University of Colombo, Portfolio">
+    <meta name="author" content="Manul Bandara">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Manul Bandara | Software Engineer Portfolio">
+    <meta property="og:description"
+        content="Associate Software Engineer specializing in web and mobile development. Expert in React, Laravel, and modern technologies.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://manulbandara.com">
+    <meta property="og:image" content="https://manulbandara.com/preview.jpg">
+    <meta property="og:site_name" content="Manul Bandara Portfolio">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Manul Bandara | Software Engineer">
+    <meta name="twitter:description" content="Associate Software Engineer specializing in web and mobile development">
+    <meta name="twitter:image" content="https://manulbandara.com/preview.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://manulbandara.com">
+
+    <!-- Structured Data (JSON-LD) for Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Manul Bandara",
+      "jobTitle": "Associate Software Engineer | Full Stack Developer",
+      "url": "https://manulbandara.com",
+      "email": "manulbandara@gmail.com",
+      "telephone": "+94710144320",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Malabe",
+        "addressCountry": "Sri Lanka"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Sri Lanka Institute of Information Technology"
+      },
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance Software Developer"
+      },
+      "knowsAbout": ["JavaScript", "React", "React Native", "Node.js", "Java", "PHP", "Python", "C++", "MySQL", "MongoDB", "Firebase", "AWS", "Full Stack Development", "Mobile Development", "AI/ML", "Web Development"],
+      "sameAs": [
+        "https://github.com/manulbandara",
+        "https://linkedin.com/in/manulbandara"
+      ]
+    }
+    </script>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
         rel="stylesheet">
@@ -435,27 +494,21 @@
             border-radius: 24px;
             padding: 2rem;
             width: 100%;
-            max-width: 450px;
-            height: 500px;
+            max-width: 400px;
+            height: 450px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
             backdrop-filter: blur(20px);
-            animation: cardFloat 6s ease-in-out infinite;
+            transition: all 0.4s ease;
         }
 
-        @keyframes cardFloat {
-
-            0%,
-            100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-20px) rotate(2deg);
-            }
+        .profile-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
         }
 
         .profile-card::before {
@@ -463,11 +516,15 @@
             position: absolute;
             top: -50%;
             right: -50%;
-            width: 300px;
-            height: 300px;
+            width: 250px;
+            height: 250px;
             background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            opacity: 0.1;
+            transition: opacity 0.4s;
+        }
+
+        .profile-card:hover::before {
             opacity: 0.15;
-            animation: float 10s ease-in-out infinite;
         }
 
         .profile-card::after {
@@ -476,70 +533,54 @@
             inset: 0;
             border-radius: 24px;
             padding: 2px;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.5), rgba(139, 92, 246, 0.5), rgba(99, 102, 241, 0.5));
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.3));
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             opacity: 0;
-            animation: borderGlow 3s ease infinite;
+            transition: opacity 0.4s;
         }
 
-        @keyframes borderGlow {
-
-            0%,
-            100% {
-                opacity: 0;
-            }
-
-            50% {
-                opacity: 1;
-            }
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translate(0, 0);
-            }
-
-            50% {
-                transform: translate(-30px, 30px);
-            }
+        .profile-card:hover::after {
+            opacity: 1;
         }
 
         .profile-placeholder {
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.1));
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.08));
             border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
+            overflow: hidden;
         }
 
         .profile-placeholder i {
             font-size: 8rem;
             color: var(--primary);
-            opacity: 0.6;
-            filter: drop-shadow(0 0 30px rgba(99, 102, 241, 0.6));
-            animation: iconPulse 3s ease-in-out infinite;
+            opacity: 0.5;
+            filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.4));
+            transition: all 0.3s ease;
         }
 
-        @keyframes iconPulse {
+        .profile-card:hover .profile-placeholder i {
+            opacity: 0.7;
+            transform: scale(1.05);
+        }
 
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 0.6;
-            }
+        .profile-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
 
-            50% {
-                transform: scale(1.1);
-                opacity: 0.8;
-            }
+        .profile-card:hover .profile-placeholder img {
+            transform: scale(1.02);
         }
 
         section {
@@ -798,33 +839,65 @@
             position: absolute;
             top: 1.5rem;
             right: 1.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, #10b981, #059669);
             color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.7rem;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
             animation: badgePulse 2s ease-in-out infinite;
+            z-index: 10;
         }
 
         @keyframes badgePulse {
 
             0%,
             100% {
-                box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+                box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+                transform: scale(1);
             }
 
             50% {
-                box-shadow: 0 6px 25px rgba(99, 102, 241, 0.6);
+                box-shadow: 0 6px 25px rgba(16, 185, 129, 0.6);
+                transform: scale(1.05);
             }
         }
 
         .exp-badge.past {
-            background: linear-gradient(135deg, var(--text-dim), #64748b);
+            background: linear-gradient(135deg, #64748b, #475569);
             animation: none;
+            box-shadow: 0 4px 15px rgba(100, 116, 139, 0.4);
+        }
+
+        .exp-badge.ongoing {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        @keyframes ongoingPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+                transform: scale(1);
+            }
+
+            50% {
+                box-shadow: 0 6px 25px rgba(59, 130, 246, 0.6);
+                transform: scale(1.05);
+            }
+        }
+
+        .exp-badge.ongoing {
+            animation: ongoingPulse 2s ease-in-out infinite;
+        }
+
+        .exp-badge.completed {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
         }
 
         .exp-header {
@@ -832,6 +905,7 @@
             align-items: flex-start;
             gap: 1rem;
             margin-bottom: 1.5rem;
+            padding-right: 100px;
         }
 
         .exp-icon {
@@ -902,7 +976,7 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
         }
 
@@ -915,6 +989,9 @@
             transition: all 0.4s;
             cursor: pointer;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .project-card::after {
@@ -924,6 +1001,7 @@
             background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
             opacity: 0;
             transition: opacity 0.4s;
+            pointer-events: none;
         }
 
         .project-card:hover::after {
@@ -938,19 +1016,33 @@
 
         .project-image {
             width: 100%;
-            height: 200px;
+            height: 220px;
+            min-height: 220px;
+            max-height: 220px;
             background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.2));
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 4rem;
             position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: all 0.4s;
         }
 
-        .project-card:hover .project-image {
-            transform: scale(1.05);
-            filter: brightness(1.2);
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-image i.placeholder-icon {
+            position: relative;
+            z-index: 1;
         }
 
         .project-category {
@@ -965,6 +1057,82 @@
             text-transform: uppercase;
             font-weight: 700;
             letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 3;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .gallery-nav:hover {
+            background: rgba(99, 102, 241, 0.9);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .gallery-prev {
+            left: 10px;
+        }
+
+        .gallery-next {
+            right: 10px;
+        }
+
+        .project-card:hover .gallery-nav {
+            display: flex;
+        }
+
+        .gallery-dots {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: none;
+            gap: 0.3rem;
+            z-index: 2;
+        }
+
+        .gallery-dot {
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .gallery-dot.active {
+            background: white;
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        .project-image[data-has-gallery="true"] .gallery-dots {
+            display: flex;
+        }
+
+        .project-img {
+            display: none;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-img.active {
+            display: block;
         }
 
         .project-content {
@@ -987,11 +1155,55 @@
             color: var(--text-dim);
             line-height: 1.7;
             font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .project-btn-code {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .project-btn-code:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .project-btn-live {
+            background: var(--primary);
+            color: white;
+        }
+
+        .project-btn-live:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
         }
 
         .cert-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
@@ -999,40 +1211,102 @@
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: 20px;
-            padding: 2rem;
+            padding: 0;
             backdrop-filter: blur(20px);
             transition: all 0.3s;
-            text-align: center;
+            overflow: hidden;
+            cursor: pointer;
         }
 
         .cert-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px) scale(1.02);
             border-color: var(--primary);
-            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+            box-shadow: 0 15px 50px rgba(99, 102, 241, 0.3);
         }
 
-        .cert-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 16px;
+        .cert-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.1));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+            position: relative;
+            overflow: hidden;
         }
 
-        .cert-card h3 {
+        .cert-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.4s;
+        }
+
+        .cert-card:hover .cert-image img {
+            transform: scale(1.1);
+        }
+
+        .cert-icon {
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.5;
+        }
+
+        .cert-content {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .cert-content h3 {
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
             font-weight: 700;
         }
 
-        .cert-card p {
+        .cert-content p {
             color: var(--text-dim);
             font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .cert-date {
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .cert-placeholder {
+            background: var(--card);
+            border: 2px dashed var(--border);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cert-placeholder:hover {
+            border-color: var(--primary);
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        .cert-placeholder i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .cert-placeholder h3 {
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
+        }
+
+        .cert-placeholder p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
         }
 
         .contact-content {
@@ -1070,6 +1344,61 @@
         .form-group textarea {
             resize: vertical;
             min-height: 150px;
+        }
+
+        .whatsapp-contact {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 2rem;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s;
+        }
+
+        .whatsapp-contact:hover {
+            border-color: #25D366;
+            box-shadow: 0 10px 40px rgba(37, 211, 102, 0.2);
+        }
+
+        .whatsapp-contact h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .whatsapp-contact h3 i {
+            color: #25D366;
+            font-size: 1.5rem;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn i {
+            font-size: 1.5rem;
         }
 
         footer {
@@ -1724,7 +2053,8 @@
             }
 
             .profile-card {
-                height: 400px;
+                height: 350px;
+                max-width: 350px;
             }
 
             .section-header h2 {
@@ -1747,6 +2077,10 @@
             .experience-grid,
             .projects-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .exp-header {
+                padding-right: 90px;
             }
 
             .chatbot-container {
@@ -1860,8 +2194,8 @@
     <nav>
         <div class="nav-container">
             <div class="logo">
-                <div class="logo-icon"><i class="fas fa-code"></i></div><span>Pubudu<span
-                        style="color: var(--primary); background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">.</span>Ishan</span>
+                <div class="logo-icon"><i class="fas fa-code"></i></div><span>Manul<span
+                        style="color: var(--primary); background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">.</span>Bandara</span>
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
@@ -1879,19 +2213,26 @@
     <section class="hero" id="home">
         <div class="hero-container">
             <div class="hero-content">
-                <h4>SOFTWARE ENGINEER</h4>
-                <h1>Pubudu Ishan Wickrama Arachchi</h1>
-                <h3>Associate Software Engineer</h3>
-                <p>Passionate about creating innovative digital solutions with a focus on mobile and web technologies.
-                    Transforming ideas into elegant, user-friendly applications.</p>
+                <h4>ASSOCIATE SOFTWARE ENGINEER | FULL STACK DEVELOPER</h4>
+                <h1>Manul Bandara</h1>
+                <h3>BSc (Hons) in Information Technology</h3>
+                <p>Final-year IT undergraduate with internship experience in enterprise software development at Sri
+                    Lanka Telecom.
+                    Skilled in React, Python, PHP, MySQL, and cloud technologies, with proven ability to deliver
+                    production-ready solutions.</p>
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary"><i class="fas fa-download"></i> Download CV</a>
+                    <a href="Manul_Bandara_CV.pdf" download="Manul_Bandara_CV.pdf" class="btn btn-primary"><i
+                            class="fas fa-download"></i> Download CV</a>
                     <a href="#contact" class="btn btn-secondary"><i class="fas fa-paper-plane"></i> Hire Me</a>
                 </div>
             </div>
             <div class="hero-image">
                 <div class="profile-card">
-                    <div class="profile-placeholder"><i class="fas fa-user-circle"></i></div>
+                    <div class="profile-placeholder" id="profilePlaceholder">
+                        <!-- To add your photo, replace the icon below with: -->
+                        <img src="images/profile.png" alt="Manul Bandara">
+                        <i class=""></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1905,28 +2246,32 @@
         <div class="about-content fade-in">
             <div class="about-image"><i class="fas fa-laptop-code"></i></div>
             <div class="about-text">
-                <h3>Crafting Digital Experiences with Passion</h3>
-                <p>I'm Pubudu Ishan Wickrama Arachchi, an Associate Software Engineer currently pursuing my
-                    undergraduate degree at the Faculty of Technology, University of Colombo. With a strong foundation
-                    in both mobile and web development, I specialize in creating intuitive, user-centered applications
-                    that solve real-world problems.</p>
-                <p>My journey in software engineering has equipped me with expertise in modern technologies including
-                    Flutter, Vue.js, Laravel, React and various backend frameworks. I'm passionate about UI/UX design
-                    and believe that great code should be matched with exceptional user experience.</p>
+                <h3>Building Innovative Solutions with Modern Technology</h3>
+                <p>I'm Manul Bandara, a final-year IT undergraduate at Sri Lanka Institute of Information Technology
+                    (SLIIT)
+                    with hands-on internship experience at Sri Lanka Telecom PLC. I specialize in building AI-driven
+                    applications
+                    and scalable full-stack systems that solve real-world problems.</p>
+                <p>My expertise spans across modern web and mobile technologies including React, Node.js, Python, PHP,
+                    and cloud platforms.
+                    I've successfully delivered production-ready solutions ranging from AI-powered travel apps to
+                    enterprise management systems.
+                    I'm passionate about clean code, efficient algorithms, and creating exceptional user experiences.
+                </p>
             </div>
         </div>
         <div class="stats">
             <div class="stat-card fade-in">
-                <h4>1+</h4>
-                <p>Years Experience</p>
+                <h4>6+</h4>
+                <p>Months Internship</p>
+            </div>
+            <div class="stat-card fade-in">
+                <h4>15+</h4>
+                <p>Projects Completed</p>
             </div>
             <div class="stat-card fade-in">
                 <h4>10+</h4>
-                <p>Projects Contribution</p>
-            </div>
-            <div class="stat-card fade-in">
-                <h4>12+</h4>
-                <p>Public Repositories</p>
+                <p>Technologies Mastered</p>
             </div>
         </div>
     </section>
@@ -1939,68 +2284,85 @@
         <div class="skills-grid">
             <div class="skills-track">
                 <div class="skill-card">
-                    <div class="skill-icon"><i class="fab fa-react"></i></div>
-                    <p>React</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon"><i class="fab fa-laravel"></i></div>
-                    <p>Laravel</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon"><i class="fab fa-php"></i></div>
-                    <p>PHP</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon"><i class="fas fa-database"></i></div>
-                    <p>SQL</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon"><i class="fas fa-server"></i></div>
-                    <p>MS SQL</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon"><i class="fab fa-figma"></i></div>
-                    <p>Figma</p>
-                </div>
-                <div class="skill-card">
                     <div class="skill-icon"><i class="fab fa-js"></i></div>
                     <p>JavaScript</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon"><i class="fas fa-database"></i></div>
-                    <p>SQLite</p>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon"><i class="fab fa-react"></i></div>
                     <p>React</p>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon"><i class="fab fa-laravel"></i></div>
-                    <p>Laravel</p>
+                    <div class="skill-icon"><i class="fab fa-react"></i></div>
+                    <p>React Native</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-node-js"></i></div>
+                    <p>Node.js</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-java"></i></div>
+                    <p>Java</p>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon"><i class="fab fa-php"></i></div>
                     <p>PHP</p>
                 </div>
                 <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-python"></i></div>
+                    <p>Python</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-code"></i></div>
+                    <p>C++</p>
+                </div>
+                <div class="skill-card">
                     <div class="skill-icon"><i class="fas fa-database"></i></div>
-                    <p>SQL</p>
+                    <p>MySQL</p>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon"><i class="fas fa-server"></i></div>
-                    <p>MS SQL</p>
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <p>MongoDB</p>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon"><i class="fab fa-figma"></i></div>
-                    <p>Figma</p>
+                    <div class="skill-icon"><i class="fas fa-fire"></i></div>
+                    <p>Firebase</p>
                 </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-aws"></i></div>
+                    <p>AWS</p>
+                </div>
+                <!-- Duplicate for infinite scroll -->
                 <div class="skill-card">
                     <div class="skill-icon"><i class="fab fa-js"></i></div>
                     <p>JavaScript</p>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon"><i class="fas fa-database"></i></div>
-                    <p>SQLite</p>
+                    <div class="skill-icon"><i class="fab fa-react"></i></div>
+                    <p>React</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-react"></i></div>
+                    <p>React Native</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-node-js"></i></div>
+                    <p>Node.js</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-java"></i></div>
+                    <p>Java</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-php"></i></div>
+                    <p>PHP</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-python"></i></div>
+                    <p>Python</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-code"></i></div>
+                    <p>C++</p>
                 </div>
             </div>
         </div>
@@ -2012,56 +2374,44 @@
             <p>My professional journey and key contributions</p>
         </div>
         <div class="experience-grid">
+            <!-- Freelancing Experience -->
             <div class="experience-card fade-in">
                 <span class="exp-badge">CURRENT</span>
                 <div class="exp-header">
-                    <div class="exp-icon"><i class="fas fa-briefcase"></i></div>
+                    <div class="exp-icon"><i class="fas fa-laptop-code"></i></div>
                     <div class="exp-info">
-                        <h3>LAUGFS Holdings Limited</h3>
-                        <p class="exp-role">Associate Software Engineer</p>
+                        <h3>Freelance Software Developer</h3>
+                        <p class="exp-role">Full Stack Developer</p>
                         <div class="exp-meta">
-                            <span><i class="far fa-calendar"></i> August 2024 - Present</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</span>
+                            <span><i class="far fa-calendar"></i> June 2024 - Present</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Remote</span>
                         </div>
                     </div>
                 </div>
-                <p class="exp-description">Working as an Associate Software Engineer at LAUGFS Holdings Limited,
-                    focusing on developing and maintaining scalable web and mobile applications using modern
-                    technologies.</p>
+                <p class="exp-description">Working on diverse freelance projects including AI-powered applications,
+                    e-commerce platforms, and enterprise management systems. Delivering custom software solutions using
+                    MERN stack, React Native, Python, and modern cloud technologies.</p>
             </div>
 
+            <!-- Internship Experience -->
             <div class="experience-card fade-in">
                 <span class="exp-badge past">PAST</span>
                 <div class="exp-header">
                     <div class="exp-icon"><i class="fas fa-briefcase"></i></div>
                     <div class="exp-info">
-                        <h3>LAUGFS Holdings Limited</h3>
-                        <p class="exp-role">Software Engineer (Intern)</p>
+                        <h3>Sri Lanka Telecom PLC</h3>
+                        <p class="exp-role">Intern Software Engineer</p>
                         <div class="exp-meta">
-                            <span><i class="far fa-calendar"></i> February 2024 - August 2024</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</span>
+                            <span><i class="far fa-calendar"></i> December 2023 - June 2024</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Malabe, Sri Lanka</span>
                         </div>
                     </div>
                 </div>
-                <p class="exp-description">Completed internship as Software Engineer at LAUGFS Holdings Limited, gaining
-                    hands-on experience in web and mobile application development.</p>
-            </div>
-
-            <div class="experience-card fade-in">
-                <span class="exp-badge past">PAST</span>
-                <div class="exp-header">
-                    <div class="exp-icon"><i class="fas fa-briefcase"></i></div>
-                    <div class="exp-info">
-                        <h3>People's Bank</h3>
-                        <p class="exp-role">Trainee</p>
-                        <div class="exp-meta">
-                            <span><i class="far fa-calendar"></i> January 2020 - June 2021</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Kamburupitiya, Sri Lanka</span>
-                        </div>
-                    </div>
-                </div>
-                <p class="exp-description">Completed trainee program at People's Bank, gaining valuable experience in
-                    banking operations, financial management, and customer service.</p>
+                <p class="exp-description">Developed and maintained enterprise web modules using PHP and MySQL to
+                    streamline internal data workflows.
+                    Collaborated with a team of engineers in Agile sprints, used GitHub for branching, code reviews, and
+                    issue tracking.
+                    Applied industry-standard practices to deliver reliable software solutions.</p>
             </div>
         </div>
     </section>
@@ -2072,53 +2422,40 @@
             <p>My academic background and qualifications</p>
         </div>
         <div class="experience-grid">
+            <!-- University -->
             <div class="experience-card fade-in">
-                <span class="exp-badge">ONGOING</span>
+                <span class="exp-badge ongoing">ONGOING</span>
                 <div class="exp-header">
                     <div class="exp-icon"><i class="fas fa-graduation-cap"></i></div>
                     <div class="exp-info">
-                        <h3>University of Colombo</h3>
-                        <p class="exp-role">Bachelor of ICT (Honours)</p>
+                        <h3>Sri Lanka Institute of Information Technology (SLIIT)</h3>
+                        <p class="exp-role">BSc (Hons) in Information Technology</p>
                         <div class="exp-meta">
-                            <span><i class="far fa-calendar"></i> January 2021 - Present</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</span>
+                            <span><i class="far fa-calendar"></i> 2021 - Present</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Malabe, Sri Lanka</span>
                         </div>
                     </div>
                 </div>
-                <p class="exp-description">Currently pursuing undergraduate degree in Information and Communication
-                    Technology at Faculty of Technology.</p>
+                <p class="exp-description">Currently pursuing undergraduate degree in Information Technology,
+                    focusing on software engineering, AI/ML, and full-stack development.</p>
             </div>
 
+            <!-- School -->
             <div class="experience-card fade-in">
-                <span class="exp-badge past">COMPLETED</span>
+                <span class="exp-badge completed">COMPLETED</span>
                 <div class="exp-header">
                     <div class="exp-icon"><i class="fas fa-graduation-cap"></i></div>
                     <div class="exp-info">
-                        <h3>Mahinda Rajapaksa College</h3>
-                        <p class="exp-role">G.C.E. Advanced Level</p>
+                        <h3>S. Thomas' College, Bandarawela</h3>
+                        <p class="exp-role">Secondary Education</p>
                         <div class="exp-meta">
-                            <span><i class="far fa-calendar"></i> 2017 - 2019</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Matara, Sri Lanka</span>
+                            <span><i class="far fa-calendar"></i> 2005 - 2018</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Bandarawela, Sri Lanka</span>
                         </div>
                     </div>
                 </div>
-                <p class="exp-description">Completed Advanced Level examination in Technology stream.</p>
-            </div>
-
-            <div class="experience-card fade-in">
-                <span class="exp-badge past">COMPLETED</span>
-                <div class="exp-header">
-                    <div class="exp-icon"><i class="fas fa-graduation-cap"></i></div>
-                    <div class="exp-info">
-                        <h3>Godapitiya Central College</h3>
-                        <p class="exp-role">G.C.E. Ordinary Level</p>
-                        <div class="exp-meta">
-                            <span><i class="far fa-calendar"></i> 2011 - 2016</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Matara, Sri Lanka</span>
-                        </div>
-                    </div>
-                </div>
-                <p class="exp-description">Completed Ordinary Level examination with excellent results.</p>
+                <p class="exp-description">Completed primary and secondary education with strong foundation in
+                    mathematics and sciences.</p>
             </div>
         </div>
     </section>
@@ -2136,68 +2473,363 @@
             <button class="filter-btn">Desktop Application</button>
         </div>
         <div class="projects-grid">
-            <div class="project-card fade-in" data-category="WEB APPLICATION">
-                <div class="project-image"><i class="fas fa-briefcase"></i><span class="project-category">WEB
-                        APPLICATION</span></div>
-                <div class="project-content">
-                    <h3>Portfolio.Me</h3>
-                    <p class="project-date"><i class="far fa-calendar"></i> October 2025</p>
-                    <p>A personal portfolio website with modern design, showcasing projects and skills with exceptional
-                        UI/UX.</p>
-                </div>
-            </div>
-
+            <!-- Project 1: TripMate - AI Travel App -->
             <div class="project-card fade-in" data-category="MOBILE APPLICATION">
-                <div class="project-image"><i class="fas fa-mobile-alt"></i><span class="project-category">MOBILE
-                        APPLICATION</span></div>
+                <div class="project-image" data-has-gallery="true">
+                    <img src="images/travel.png" class="project-img active">
+                    <img src="images/travel.png" class="project-img">
+                    <img src="image3.jpg" class="project-img">
+                    <button class="gallery-nav gallery-prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="gallery-nav gallery-next"><i class="fas fa-chevron-right"></i></button>
+                    <div class="gallery-dots">
+                        <span class="gallery-dot active"></span>
+                        <span class="gallery-dot"></span>
+                        <span class="gallery-dot"></span>
+                    </div>
+                    <span class="project-category">Mobile APPLICATION</span>
+                </div>
                 <div class="project-content">
-                    <h3>Currents - News App</h3>
-                    <p class="project-date"><i class="far fa-calendar"></i> April 2025</p>
-                    <p>A native Android application designed for browsing and reading news articles with intuitive
-                        navigation.</p>
+                    <h3>TripMate - AI-Powered Travel Planning App</h3>
+                    <p class="project-date"><i class="far fa-calendar"></i> 2025</p>
+                    <p>Built an AI-driven mobile app using React Native, Node.js, Python, and Firebase that generates
+                        personalized travel itineraries.
+                        Implemented ML/NLP models to analyze user preferences and create custom travel plans.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/piyumal2105/TripMate" class="project-btn project-btn-code" target="_blank">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <div class="project-card fade-in" data-category="QA AUTOMATION">
-                <div class="project-image"><i class="fas fa-vial"></i><span class="project-category">QA
-                        AUTOMATION</span></div>
-                <div class="project-content">
-                    <h3>Test Automation for OrangeHRM</h3>
-                    <p class="project-date"><i class="far fa-calendar"></i> April 2025</p>
-                    <p>Comprehensive testing scenarios for the OrangeHRM system using automated testing frameworks.</p>
-                </div>
-            </div>
-
-            <div class="project-card fade-in" data-category="MOBILE APPLICATION">
-                <div class="project-image"><i class="fas fa-heartbeat"></i><span class="project-category">MOBILE
-                        APPLICATION</span></div>
-                <div class="project-content">
-                    <h3>BMI Calculator</h3>
-                    <p class="project-date"><i class="far fa-calendar"></i> June 2023</p>
-                    <p>The BMI Calculator is my first Flutter project, designed to be a simple and effective health
-                        tracking tool.</p>
-                </div>
-            </div>
-
+            <!-- Project 2: ShopHub.lk -->
             <div class="project-card fade-in" data-category="WEB APPLICATION">
-                <div class="project-image"><i class="fas fa-shopping-cart"></i><span class="project-category">WEB
-                        APPLICATION</span></div>
+                <div class="project-image" data-has-gallery="false">
+                    <img src="images/t2.png" alt="ShopHub"> 
+                    <i class=""></i>
+                    <span class="project-category">WEB APPLICATION</span>
+                </div>
                 <div class="project-content">
-                    <h3>E-Commerce Platform</h3>
-                    <p class="project-date"><i class="far fa-calendar"></i> March 2025</p>
-                    <p>Full-featured online store with shopping cart, payment integration, and admin dashboard.</p>
+                    <h3>ShopHub.lk - Shopping Mall System</h3>
+                    <p class="project-date"><i class="far fa-calendar"></i> 2024</p>
+                    <p>Developed a scalable MERN stack e-commerce application supporting 24/7 online shopping for Sri
+                        Lankan retailers.
+                        Built core flows including product catalog, cart, checkout, and order management with optimized
+                        API endpoints.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/piyumal2105/ShopHub.lk" class="project-btn project-btn-code" target="_blank">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <div class="project-card fade-in" data-category="DESKTOP APPLICATION">
-                <div class="project-image"><i class="fas fa-desktop"></i><span class="project-category">DESKTOP
-                        APPLICATION</span></div>
+            <!-- Project 3: Manufacturing Management -->
+            <div class="project-card fade-in" data-category="WEB APPLICATION">
+                <div class="project-image" data-has-gallery="false">
+                    <img src="images/t1.png" alt="Manufacturing">
+                    <i class=""></i>
+                    <span class="project-category">WEB APPLICATION</span>
+                </div>
                 <div class="project-content">
-                    <h3>Task Management System</h3>
-                    <p class="project-date"><i class="far fa-calendar"></i> February 2025</p>
-                    <p>Desktop application for managing tasks and projects with team collaboration features.</p>
+                    <h3>Manufacturing Management System</h3>
+                    <p class="project-date"><i class="far fa-calendar"></i> 2023</p>
+                    <p>Developed a dynamic order and production management system for a T-shirt manufacturer using MERN
+                        stack.
+                        Automated order fulfillment workflows and implemented role-based access control with reporting
+                        dashboards.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/SLIITITP/ITP_WD_B02_13" class="project-btn project-btn-code" target="_blank">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
                 </div>
             </div>
+
+<!-- Project 4: Quick Start AI ChatBot -->
+<div class="project-card fade-in" data-category="WEB APPLICATION">
+    <div class="project-image" data-has-gallery="true">
+        <img src="images/chat.png" class="project-img active">
+        <img src="images/chat1.png" class="project-img">
+        <img src="images/chat2.png" class="project-img">
+        <button class="gallery-nav gallery-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="gallery-nav gallery-next"><i class="fas fa-chevron-right"></i></button>
+        <div class="gallery-dots">
+            <span class="gallery-dot active"></span>
+            <span class="gallery-dot"></span>
+            <span class="gallery-dot"></span>
+        </div>
+        <span class="project-category">Web APPLICATION</span>
+    </div>
+    <div class="project-content">
+        <h3>🚀 Quick Start AI ChatBot</h3>
+        <p class="project-date"><i class="far fa-calendar"></i> 2025</p>
+        <p>A fast, lightweight, mobile-friendly AI ChatBot built using the GeminiAPI.
+            Features real-time AI chat interactions, smooth UI, and engaging animations.</p>
+        <p><strong>Features:</strong> Real-time AI chat, Mobile-friendly design, Fast and lightweight</p>
+        <p><strong>Project Files:</strong> Includes index.html, style.css, script.js, images, avatars, sounds, and extra
+            resources.</p>
+        <div class="project-links">
+            <a href="https://github.com/ManulBandara/AI-ChatBot-Using-GeminiAPI" class="project-btn project-btn-code"
+                target="_blank">
+                <i class="fab fa-github"></i> Code
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Project 5: Wellness Tracker - Android Health App -->
+<div class="project-card fade-in" data-category="MOBILE APPLICATION">
+    <div class="project-image" data-has-gallery="true">
+        <img src="images/well1.png" class="project-img active">
+        <img src="images/well2.png" class="project-img">
+        <img src="images/well3.png" class="project-img">
+        <button class="gallery-nav gallery-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="gallery-nav gallery-next"><i class="fas fa-chevron-right"></i></button>
+        <div class="gallery-dots">
+            <span class="gallery-dot active"></span>
+            <span class="gallery-dot"></span>
+        </div>
+        <span class="project-category">MOBILE APPLICATION</span>
+    </div>
+    <div class="project-content">
+        <h3>💪 Wellness Tracker – Android Health Management App</h3>
+        <p class="project-date"><i class="far fa-calendar"></i> 2025</p>
+        <p>Built a personal wellness Android app using Kotlin and Android Studio to help users manage daily health
+            routines.
+            Integrated modules for habit tracking, mood journaling, and hydration reminders with real-time
+            notifications.
+            Implemented SharedPreferences for data persistence and a home-screen widget for live habit progress updates.
+        </p>
+        <div class="project-links">
+            <a href="https://github.com/ManulBandara" class="project-btn project-btn-code"
+                target="_blank">
+                <i class="fab fa-github"></i> Code
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Project 6: Portfolio.Me - Personal Portfolio Website -->
+<div class="project-card fade-in" data-category="WEB APPLICATION">
+    <div class="project-image" data-has-gallery="true">
+        <img src="images/portfolio1.png" class="project-img active">
+        <img src="images/portfolio2.png" class="project-img">
+        <button class="gallery-nav gallery-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="gallery-nav gallery-next"><i class="fas fa-chevron-right"></i></button>
+        <div class="gallery-dots">
+            <span class="gallery-dot active"></span>
+            <span class="gallery-dot"></span>
+        </div>
+        <span class="project-category">WEB APPLICATION</span>
+    </div>
+    <div class="project-content">
+        <h3>🌐 Portfolio.Me – Personal Portfolio Website</h3>
+        <p class="project-date"><i class="far fa-calendar"></i> 2025</p>
+        <p>Developed a responsive personal portfolio website using HTML, CSS, and JavaScript to showcase projects and
+            skills.
+            Implemented interactive UI components, smooth animations, and a dynamic project gallery.
+            Optimized the website for SEO and mobile responsiveness to enhance user experience across devices.</p>
+        <div class="project-links">
+            <a href="https://github.com/ManulBandara?tab=repositories" class="project-btn project-btn-code" target="_blank">
+                <i class="fab fa-github"></i> Code
+            </a>
+            <a href="https://yourusername.github.io/portfolio-me" class="project-btn project-btn-live" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<!-- Project 7: VibeStream - Music Streaming Mobile App -->
+<div class="project-card fade-in" data-category="MOBILE APPLICATION">
+    <div class="project-image" data-has-gallery="true">
+        <img src="images/vibe1.png" class="project-img active">
+        <img src="images/vibe2.png" class="project-img">
+        <img src="images/vibe3.png" class="project-img">
+        <button class="gallery-nav gallery-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="gallery-nav gallery-next"><i class="fas fa-chevron-right"></i></button>
+        <div class="gallery-dots">
+            <span class="gallery-dot active"></span>
+            <span class="gallery-dot"></span>
+        </div>
+        <span class="project-category">MOBILE APPLICATION</span>
+    </div>
+    <div class="project-content">
+        <h3>🎵 VibeStream – Mobile Music Streaming App</h3>
+        <p class="project-date"><i class="far fa-calendar"></i> 2025</p>
+        <p>Developed a cutting-edge mobile music streaming app for Kotlin/Java, designed for users aged 18–35 to enjoy
+            personalized music experiences on the go.
+            Features include mood-based playlists (Party, Relax, Love, Chill), sports modes (Run, Yoga, Improve), user
+            account management, trending music discovery, and a favorites list.
+            Implemented intuitive UI using Dark Blue, Light Gray, and Purple with Linear, Constraint, and Frame layouts
+            for responsive design.
+            Interactive elements, dynamic RecyclerViews, and seamless navigation via intents enhance engagement and
+            usability.</p>
+        <div class="project-links">
+            <a href="https://github.com/yourusername/vibestream" class="project-btn project-btn-code" target="_blank">
+                <i class="fab fa-github"></i> Code
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Project 2: Zentry Gaming Website Clone -->
+<div class="project-card fade-in" data-category="WEB APPLICATION">
+    <div class="project-image" data-has-gallery="true">
+        <img src="images/g1.png" class="project-img active">
+        <img src="images/g2.png" class="project-img">
+        <img src="images/g3.png" class="project-img">
+        <img src="images/g4.png" class="project-img">
+        <img src="images/g5.png" class="project-img">
+        <img src="images/g6.png" class="project-img">
+        <button class="gallery-nav gallery-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="gallery-nav gallery-next"><i class="fas fa-chevron-right"></i></button>
+        <div class="gallery-dots">
+            <span class="gallery-dot active"></span>
+            <span class="gallery-dot"></span>
+            <span class="gallery-dot"></span>
+        </div>
+        <span class="project-category">Web APPLICATION</span>
+    </div>
+    <div class="project-content">
+        <h3>🎮 Zentry Gaming Website Clone</h3>
+        <p class="project-date"><i class="far fa-calendar"></i> 2025</p>
+        <p>A modern, responsive gaming website inspired by the Zentry design — built using only HTML, CSS, and
+            JavaScript.
+            Recreated the sleek, animated, neon-glow UI with smooth interactions and creative scroll effects — without
+            using any frameworks or libraries.</p>
+        <div class="project-links">
+            <a href="https://github.com/ManulBandara/Gaming-Site" class="project-btn project-btn-code" target="_blank">
+                <i class="fab fa-github"></i> Code
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Project 3: Library System Website -->
+<div class="project-card fade-in" data-category="WEB APPLICATION">
+    <div class="project-image" data-has-gallery="true">
+        <img src="images/lib.png" class="project-img active">
+        <img src="images/lib1.png" class="project-img">
+        <img src="images/lib2.png" class="project-img">
+        <img src="images/lib3.png" class="project-img">
+        <img src="images/lib4.png" class="project-img">
+        <img src="images/lib5.png" class="project-img">
+        <img src="images/lib6.png" class="project-img">
+       
+        <button class="gallery-nav gallery-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="gallery-nav gallery-next"><i class="fas fa-chevron-right"></i></button>
+        <div class="gallery-dots">
+            <span class="gallery-dot active"></span>
+            <span class="gallery-dot"></span>
+            <span class="gallery-dot"></span>
+        </div>
+        <span class="project-category">Web APPLICATION</span>
+    </div>
+    <div class="project-content">
+        <h3>Library System Website</h3>
+        <p class="project-date"><i class="far fa-calendar"></i> 2025</p>
+        <p>The Library System Website is a modern, user-friendly web application for managing book borrowing.
+            Features include secure user authentication, book search with filters, borrowing and history tracking,
+            profile management, and a responsive, animated design with vibrant colors and glassmorphism.</p>
+        <p><strong>Technologies:</strong> HTML, CSS, JavaScript, PHP, MySQL, Apache, Font Awesome</p>
+        <div class="project-links">
+            <a href="https://github.com/ManulBandara/Library-Management-System---SQA" class="project-btn project-btn-code"
+                target="_blank">
+                <i class="fab fa-github"></i> Code
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Project 4: To-Do Task Web Application -->
+<div class="project-card fade-in" data-category="WEB APPLICATION">
+    <div class="project-image" data-has-gallery="true">
+        <img src="images/todo1.png" class="project-img active">
+        <img src="images/todo2.png" class="project-img">
+        <button class="gallery-nav gallery-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="gallery-nav gallery-next"><i class="fas fa-chevron-right"></i></button>
+        <div class="gallery-dots">
+            <span class="gallery-dot active"></span>
+            <span class="gallery-dot"></span>
+        </div>
+        <span class="project-category">WEB APPLICATION</span>
+    </div>
+    <div class="project-content">
+        <h3>To-Do Task Web Application</h3>
+        <p class="project-date"><i class="far fa-calendar"></i> 2025</p>
+        <p>Built a full-stack task management web app using HTML, CSS, JavaScript, PHP, MySQL, and Docker Compose.
+            Developed RESTful APIs and a responsive SPA frontend to create, view, and complete tasks with persistent
+            data storage. Containerized all services with Docker and integrated PHPUnit & Selenium for automated
+            testing.</p>
+        <div class="project-links">
+            <a href="https://github.com/ManulBandara/todo-app" class="project-btn project-btn-code" target="_blank">
+                <i class="fab fa-github"></i> Code
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Project 5: Job Portal System -->
+<div class="project-card fade-in" data-category="WEB APPLICATION">
+    <div class="project-image" data-has-gallery="false">
+        <img src="images/job1.png" alt="Job Portal System">
+        <span class="project-category">Web APPLICATION</span>
+    </div>
+    <div class="project-content">
+        <h3>💼 Job Portal System</h3>
+        <p class="project-date"><i class="far fa-calendar"></i> 2024</p>
+        <p>Developed a web-based Job Portal using HTML, CSS, JavaScript, PHP, and MySQL that connects job seekers and
+            employers.
+            Implemented user authentication, job listings, and application management features with a responsive design.
+        </p>
+        <div class="project-links">
+            <a href="https://github.com/ManulBandara/Job-Portal-System" class="project-btn project-btn-code"
+                target="_blank">
+                <i class="fab fa-github"></i> Code
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Project 6: Portfolio Website 2 -->
+<div class="project-card fade-in" data-category="WEB APPLICATION">
+    <div class="project-image" data-has-gallery="true">
+        <img src="images/port1.1.png" class="project-img active">
+        <img src="images/port1.2.png" class="project-img">
+        <img src="images/port1.3.png" class="project-img">
+        <img src="images/port1.4.png" class="project-img">
+        <img src="images/port1.5.png" class="project-img">
+        <img src="images/port1.6.png" class="project-img">
+        <button class="gallery-nav gallery-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="gallery-nav gallery-next"><i class="fas fa-chevron-right"></i></button>
+        <div class="gallery-dots">
+            <span class="gallery-dot active"></span>
+            <span class="gallery-dot"></span>
+            <span class="gallery-dot"></span>
+        </div>
+        <span class="project-category">Web APPLICATION</span>
+    </div>
+    <div class="project-content">
+        <h3>🌐 Portfolio Website 2</h3>
+        <p class="project-date"><i class="far fa-calendar"></i> 2024</p>
+        <p>Developed a modern portfolio website using Next.js to showcase my projects, skills, and experience as a
+            full-stack developer.
+            Integrated dynamic routing, API handling, and custom components with a responsive Tailwind CSS design for
+            smooth navigation.</p>
+        <div class="project-links">
+            <a href="https://github.com/ManulBandara/next.js-site" class="project-btn project-btn-code"
+                target="_blank">
+                <i class="fab fa-github"></i> Code
+            </a><a href="https://manul-bandara.vercel.app/" class="project-btn project-btn-live" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Live Demo </a> 
+        </div>
+    </div>
+</div>
+
+
         </div>
     </section>
 
@@ -2207,18 +2839,163 @@
             <p>Professional certifications and achievements</p>
         </div>
         <div class="cert-grid">
+            <!-- Certification 1 Example -->
             <div class="cert-card fade-in">
-                <div class="cert-icon"><i class="fas fa-certificate"></i></div>
-                <h3>Add Your Certifications</h3>
-                <p>Upload certification images</p>
-                <p class="cert-date">Coming Soon</p>
+                <div class="cert-image">
+                    <img src="images/c1.png" alt="Certification"> 
+                    <i class=""></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Machine Learning with Python</h3>
+                    <p>freeCodeCamp</p>
+                    <p class="cert-date">Issued: October 2025</p>
+                </div>
             </div>
+
+            <!-- Certification 2 Example -->
             <div class="cert-card fade-in">
-                <div class="cert-icon"><i class="fas fa-award"></i></div>
-                <h3>Professional Certificates</h3>
-                <p>Industry recognized certifications</p>
-                <p class="cert-date">Add your credentials here</p>
+                <div class="cert-image">
+                    <img src="images/c2.png" alt="Certification"> 
+                    <i class=""></i>
+                </div>
+                <div class="cert-content">
+                    <h3>AI/ML Engineer - Stage 1</h3>
+                    <p>SLIIT</p>
+                    <p class="cert-date">Issued: Jul 2025</p>
+                </div>
             </div>
+
+            <!-- Certification 2 Example -->
+            <div class="cert-card fade-in">
+                <div class="cert-image">
+                    <img src="images/aws2.png" alt="Certification">
+                    <i class=""></i>
+                </div>
+                <div class="cert-content">
+                    <h3>AWS Academy Graduate - AWS Academy Cloud Foundations</h3>
+                    <p>Amazon Web Services (AWS)</p>
+                    <p class="cert-date">Issued: December 2024</p>
+                </div>
+            </div>
+
+            <!-- Certification 4 Example -->
+            <div class="cert-card fade-in">
+                <div class="cert-image">
+                    <img src="images/c4.png" alt="Certification">
+                    <i class=""></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Introduction to Front-End Developme</h3>
+                    <p>META</p>
+                    <p class="cert-date">Issued: December 2023</p>
+                </div>
+            </div>
+
+            <!-- Certification 5 Example -->
+            <div class="cert-card fade-in">
+                <div class="cert-image">
+                    <img src="images/c5.png" alt="Certification">
+                    <i class=""></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Principles of UX/UI Design</h3>
+                    <p>META</p>
+                    <p class="cert-date">Issued: December 2023</p>
+                </div>
+            </div>
+
+            <!-- Certification 6 Example -->
+            <div class="cert-card fade-in">
+                <div class="cert-image">
+                    <img src="images/c6.png" alt="Certification">
+                    <i class=""></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Introduction to Large Language Models</h3>
+                    <p>Google</p>
+                    <p class="cert-date">Issued: Jan 2025</p>
+                </div>
+            </div>
+
+            <!-- Certification 7 Example -->
+            <div class="cert-card fade-in">
+                <div class="cert-image">
+                    <img src="images/c7.png" alt="Certification">
+                    <i class=""></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Create a Lead Generation Messenger Chatbot using Chatfuel</h3>
+                    <p>Coursera</p>
+                    <p class="cert-date">Issued: December 2023</p>
+                </div>
+            </div>
+
+            <!-- Certification 8 Example -->
+            <div class="cert-card fade-in">
+                <div class="cert-image">
+                    <img src="images/c8.png" alt="Certification">
+                    <i class=""></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Introduction to MongoDB</h3>
+                    <p>MongoDB</p>
+                    <p class="cert-date">Issued: March 2024</p>
+                </div>
+            </div>
+
+            <!-- Certification 9 Example -->
+            <div class="cert-card fade-in">
+                <div class="cert-image">
+                    <img src="images/c9.png" alt="Certification">
+                    <i class=""></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Introduction to Cloud Computing</h3>
+                    <p>Simplilearn</p>
+                    <p class="cert-date">Issued: Jan 2024</p>
+                </div>
+            </div>  
+
+            <!-- Certification 10 Example -->
+            <div class="cert-card fade-in">
+                <div class="cert-image">
+                    <img src="images/c10.png" alt="Certification">
+                    <i class=""></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Introduction to Artificial Intelligence</h3>
+                    <p>Simplilearn</p>
+                    <p class="cert-date">Issued: Apr 2024</p>
+                </div>
+            </div> 
+
+            <!-- Certification 11 Example -->
+            <div class="cert-card fade-in">
+                <div class="cert-image">
+                    <img src="images/c11.png" alt="Certification">
+                    <i class=""></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Machine Learning Algorithms</h3>
+                    <p>Great Learning</p>
+                    <p class="cert-date">Issued: Oct 2024</p>
+                </div>
+            </div>
+
+            <!-- Certification 12 Example -->
+            <div class="cert-card fade-in">
+                <div class="cert-image">
+                    <img src="images/c12.png" alt="Certification">
+                    <i class=""></i>
+                </div>
+                <div class="cert-content">
+                    <h3>Microsoft Azure Fundamentals: Describe cloud concepts</h3>
+                    <p>Microsoft</p>
+                    <p class="cert-date">Issued: Jan 2025</p>
+                </div>
+            </div>
+
+           
         </div>
     </section>
 
@@ -2228,6 +3005,16 @@
             <p>Have a project in mind or just want to say hi? I'd love to hear from you!</p>
         </div>
         <div class="contact-content fade-in">
+            <!-- Email Contact -->
+            <div class="whatsapp-contact" style="margin-bottom: 2rem;">
+                <h3><i class="fas fa-envelope"></i> Email Me</h3>
+                <p style="color: var(--text-dim); margin-bottom: 1rem;">Send me an email for professional inquiries</p>
+                <a href="mailto:manulbandara@gmail.com" class="whatsapp-btn" style="background: var(--primary);">
+                    <i class="fas fa-envelope"></i>
+                    manulbandara@gmail.com
+                </a>
+            </div>
+
             <form class="contact-form" id="contactForm">
                 <div class="form-group"><input type="text" placeholder="Your Name" required></div>
                 <div class="form-group"><input type="email" placeholder="Your Email" required></div>
@@ -2236,6 +3023,17 @@
                 <button type="submit" class="btn btn-primary" style="width: 100%;"><i class="fas fa-paper-plane"></i>
                     Send Message</button>
             </form>
+
+            <!-- WhatsApp Contact -->
+            <div class="whatsapp-contact">
+                <h3><i class="fab fa-whatsapp"></i> Contact via WhatsApp</h3>
+                <p style="color: var(--text-dim); margin-bottom: 1rem;">Prefer instant messaging? Reach out to me on
+                    WhatsApp!</p>
+                <a href="https://wa.me/94710144320?text=Hi%20Manul" class="whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    Chat on WhatsApp
+                </a>
+            </div>
         </div>
     </section>
 
@@ -2246,7 +3044,7 @@
             <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
             <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
         </div>
-        <p>&copy; 2025 Pubudu Ishan Wickrama Arachchi. All rights reserved.</p>
+        <p>&copy; 2025 Manul Bandara. All rights reserved.</p>
     </footer>
 
     <div class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></div>
@@ -2282,7 +3080,7 @@
         <div class="chatbot-messages" id="chatbotMessages">
             <div class="chat-message bot">
                 <div class="message-avatar"><i class="fas fa-robot"></i></div>
-                <div class="message-content">Hi! I'm the AI Assistant. I'm here to help you learn more about Pubudu.
+                <div class="message-content">Hi! I'm the AI Assistant. I'm here to help you learn more about Manul.
                     What would you like to know?</div>
             </div>
             <div class="quick-replies">
@@ -2299,11 +3097,102 @@
     </div>
 
     <script>
+        // Audio Context for Sound Effects
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        const audioContext = new AudioContext();
+
+        // Sound Effect Functions
+        function playNotificationSound() {
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+
+            oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+            oscillator.frequency.exponentialRampToValueAtTime(400, audioContext.currentTime + 0.1);
+
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.1);
+        }
+
+        function playSendSound() {
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+
+            oscillator.frequency.setValueAtTime(600, audioContext.currentTime);
+            oscillator.frequency.exponentialRampToValueAtTime(1200, audioContext.currentTime + 0.05);
+
+            gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.1);
+        }
+
+        function playOpenSound() {
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+
+            oscillator.frequency.setValueAtTime(400, audioContext.currentTime);
+            oscillator.frequency.exponentialRampToValueAtTime(800, audioContext.currentTime + 0.15);
+
+            gainNode.gain.setValueAtTime(0.25, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.2);
+        }
+
+        function playCloseSound() {
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+
+            oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+            oscillator.frequency.exponentialRampToValueAtTime(400, audioContext.currentTime + 0.15);
+
+            gainNode.gain.setValueAtTime(0.25, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.2);
+        }
+
+        function playClickSound() {
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+
+            oscillator.frequency.setValueAtTime(1000, audioContext.currentTime);
+
+            gainNode.gain.setValueAtTime(0.15, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.05);
+
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.05);
+        }
+
+        // Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
         menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
         document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
 
+        // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -2312,6 +3201,7 @@
             });
         });
 
+        // Active Navigation
         const sections = document.querySelectorAll('section');
         const navLinksAll = document.querySelectorAll('.nav-links a');
         window.addEventListener('scroll', () => {
@@ -2326,17 +3216,20 @@
             });
         });
 
+        // Fade-in Observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+        // Scroll Top Button
         const scrollTop = document.getElementById('scrollTop');
         window.addEventListener('scroll', () => {
             scrollTop.classList.toggle('visible', window.pageYOffset > 300);
         });
         scrollTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
+        // Project Filters
         const filterButtons = document.querySelectorAll('.filter-btn');
         const projectCards = document.querySelectorAll('.project-card');
         filterButtons.forEach(button => {
@@ -2355,12 +3248,71 @@
             });
         });
 
+        // Project Gallery Navigation
+        document.querySelectorAll('.project-card').forEach(card => {
+            const images = card.querySelectorAll('.project-img');
+            const dots = card.querySelectorAll('.gallery-dot');
+            const prevBtn = card.querySelector('.gallery-prev');
+            const nextBtn = card.querySelector('.gallery-next');
+
+            if (images.length > 1) {
+                let currentIndex = 0;
+
+                function showImage(index) {
+                    images.forEach(img => img.classList.remove('active'));
+                    dots.forEach(dot => dot.classList.remove('active'));
+
+                    images[index].classList.add('active');
+                    if (dots[index]) dots[index].classList.add('active');
+                }
+
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        playClickSound();
+                        currentIndex = (currentIndex - 1 + images.length) % images.length;
+                        showImage(currentIndex);
+                    });
+                }
+
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        playClickSound();
+                        currentIndex = (currentIndex + 1) % images.length;
+                        showImage(currentIndex);
+                    });
+                }
+
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        playClickSound();
+                        currentIndex = index;
+                        showImage(currentIndex);
+                    });
+                });
+            }
+        });
+
+        // Hide placeholder icons when images load
+        document.querySelectorAll('.project-image img, .cert-image img, .profile-placeholder img').forEach(img => {
+            img.addEventListener('load', function () {
+                const icon = this.parentElement.querySelector('.placeholder-icon, i:not(.fa-chevron-left):not(.fa-chevron-right)');
+                if (icon && icon.classList.contains('placeholder-icon')) {
+                    icon.style.display = 'none';
+                }
+            });
+        });
+
+        // Contact Form
         document.getElementById('contactForm').addEventListener('submit', (e) => {
             e.preventDefault();
             alert('Thank you for your message! I\'ll get back to you soon.');
             e.target.reset();
         });
 
+        // Chatbot Logic
         const chatbotToggle = document.getElementById('chatbotToggle');
         const chatbotContainer = document.getElementById('chatbotContainer');
         const chatbotClose = document.getElementById('chatbotClose');
@@ -2368,15 +3320,26 @@
         const chatbotInput = document.getElementById('chatbotInput');
         const chatbotSend = document.getElementById('chatbotSend');
 
-        chatbotToggle.addEventListener('click', () => chatbotContainer.classList.toggle('active'));
-        chatbotClose.addEventListener('click', () => chatbotContainer.classList.remove('active'));
+        chatbotToggle.addEventListener('click', () => {
+            chatbotContainer.classList.toggle('active');
+            if (chatbotContainer.classList.contains('active')) {
+                playOpenSound();
+            }
+        });
+
+        chatbotClose.addEventListener('click', () => {
+            chatbotContainer.classList.remove('active');
+            playCloseSound();
+        });
 
         const responses = {
-            'skills': 'Pubudu has expertise in React, Laravel, PHP, SQL, JavaScript, Figma, and various web and mobile technologies. He specializes in full-stack development.',
-            'experience': 'Pubudu is currently working as an Associate Software Engineer at LAUGFS Holdings Limited since August 2024. He completed his internship there from February to August 2024.',
-            'projects': 'Pubudu has worked on various projects including Portfolio.Me, Currents News App, BMI Calculator, E-Commerce Platform, and Test Automation frameworks.',
-            'contact': 'You can reach out to Pubudu through the contact form on this website or connect via social media links in the footer.',
-            'education': 'Pubudu is currently pursuing a Bachelor of ICT (Honours) at the University of Colombo, Faculty of Technology.',
+            'skills': 'Manul has expertise in React, Laravel, PHP, SQL, JavaScript, Figma, and various web and mobile technologies. He specializes in full-stack development.',
+            'experience': 'Manul is currently working as an Associate Software Engineer at LAUGFS Holdings Limited since August 2024. He completed his internship there from February to August 2024.',
+            'projects': 'Manul has worked on various projects including TripMate AI Travel App, Currents News App, Test Automation frameworks, and E-Commerce Platform.',
+            'contact': 'You can reach out to Manul via email at manulbandara@gmail.com, through WhatsApp at +94710144320, via the contact form on this website, or connect through social media links in the footer.',
+            'email': 'You can email Manul at manulbandara@gmail.com for professional inquiries.',
+            'education': 'Manul is currently pursuing a Bachelor of ICT (Honours) at the University of Colombo, Faculty of Technology.',
+            'whatsapp': 'You can contact Manul via WhatsApp at +94710144320. Just click the WhatsApp button in the contact section!',
             'default': 'Hi! I\'m the AI Assistant. I can help you with information about Skills, Experience, Projects, Education, or Contact details. What would you like to know?'
         };
 
@@ -2389,6 +3352,10 @@
             `;
             chatbotMessages.appendChild(messageDiv);
             chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+            if (!isUser) {
+                playNotificationSound();
+            }
         }
 
         function getBotResponse(message) {
@@ -2402,6 +3369,7 @@
         chatbotSend.addEventListener('click', () => {
             const message = chatbotInput.value.trim();
             if (message) {
+                playSendSound();
                 addMessage(message, true);
                 chatbotInput.value = '';
                 setTimeout(() => addMessage(getBotResponse(message)), 500);
@@ -2414,13 +3382,12 @@
 
         document.querySelectorAll('.quick-reply').forEach(reply => {
             reply.addEventListener('click', function () {
+                playClickSound();
                 const message = this.textContent;
                 addMessage(message, true);
                 setTimeout(() => addMessage(getBotResponse(message)), 500);
             });
         });
-
-        
     </script>
 </body>
 
