@@ -1766,371 +1766,258 @@
             box-shadow: 0 8px 30px rgba(99, 102, 241, 0.5);
         }
 
-        .chatbot-toggle {
-position: fixed;
-bottom: 2rem;
-right: 2rem;
-display: flex;
-align-items: center;
-gap: 0.8rem;
-cursor: pointer;
-z-index: 999;
-animation: chatbotEntrance 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-will-change: transform;
+        /* === CHATBOT CONTAINER === */
+.chatbot-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+  z-index: 999;
+  animation: chatbotEntrance 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 @keyframes chatbotEntrance {
-from {
-opacity: 0;
-transform: translate3d(0, 20px, 0);
+  from { opacity: 0; transform: translate3d(0, 20px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
 }
 
-to {
-opacity: 1;
-transform: translate3d(0, 0, 0);
-}
-}
-
+/* === CHAT BUTTON TEXT === */
 .chatbot-btn-text {
-background: linear-gradient(135deg, #5B9FED, #4A8FDB);
-padding: 0.75rem 1.5rem;
-border-radius: 25px;
-box-shadow: 0 6px 20px rgba(91, 159, 237, 0.35);
-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-display: flex;
-align-items: center;
-gap: 0.5rem;
-will-change: transform;
+  background: linear-gradient(135deg, #5B9FED, #4A8FDB);
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  box-shadow: 0 6px 20px rgba(91, 159, 237, 0.35);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  will-change: transform;
 }
 
 .chatbot-btn-text:hover {
-transform: translateY(-2px) translateZ(0);
-box-shadow: 0 8px 25px rgba(91, 159, 237, 0.45);
+  transform: translateY(-2px) translateZ(0);
+  box-shadow: 0 8px 25px rgba(91, 159, 237, 0.45);
 }
 
 .chatbot-btn-text span {
-color: white;
-font-weight: 600;
-font-size: 0.95rem;
-font-family: 'Space Grotesk', sans-serif;
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  font-family: 'Space Grotesk', sans-serif;
 }
-
 .chatbot-btn-text .name {
-font-weight: 700;
-font-size: 1rem;
+  font-weight: 700;
+  font-size: 1rem;
 }
 
-/* 3D ADVANCED ROBOT ICON */
+/* === ROBOT === */
 .chatbot-robot {
-width: 75px;
-height: 85px;
-position: relative;
-display: flex;
-align-items: center;
-justify-content: center;
-animation: robotFloat 3s ease-in-out infinite;
-will-change: transform;
-filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.25));
+  width: 75px;
+  height: 85px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: robotFloat 3s ease-in-out infinite;
+  will-change: transform;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.25));
 }
 
 @keyframes robotFloat {
-0%, 100% {
-transform: translateY(0) translateZ(0);
-}
-50% {
-transform: translateY(-10px) translateZ(0);
-}
+  0%, 100% { transform: translateY(0) translateZ(0); }
+  50% { transform: translateY(-10px) translateZ(0); }
 }
 
-/* Robot Shadow */
+/* === SHADOW === */
 .chatbot-robot::before {
-content: '';
-position: absolute;
-bottom: -12px;
-left: 50%;
-transform: translateX(-50%);
-width: 50px;
-height: 8px;
-background: radial-gradient(ellipse, rgba(0, 0, 0, 0.3), transparent);
-border-radius: 50%;
-animation: shadowPulse 3s ease-in-out infinite;
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 8px;
+  background: radial-gradient(ellipse, rgba(0, 0, 0, 0.3), transparent);
+  border-radius: 50%;
+  animation: shadowPulse 3s ease-in-out infinite;
 }
-
 @keyframes shadowPulse {
-0%, 100% {
-transform: translateX(-50%) scale(1);
-opacity: 0.3;
-}
-50% {
-transform: translateX(-50%) scale(0.8);
-opacity: 0.2;
-}
+  0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.3; }
+  50% { transform: translateX(-50%) scale(0.8); opacity: 0.2; }
 }
 
-/* Robot Body Container */
+/* === BODY STRUCTURE === */
 .robot-body {
-width: 55px;
-height: 70px;
-position: relative;
-display: flex;
-flex-direction: column;
-align-items: center;
-z-index: 1;
+  width: 55px;
+  height: 70px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
 }
 
-/* Robot Head - 3D Effect */
+/* === HEAD === */
 .robot-head {
-width: 48px;
-height: 42px;
-background: linear-gradient(145deg, #f5f7fa, #e8ebf0);
-border-radius: 50% 50% 45% 45%;
-position: relative;
-box-shadow:
-inset 0 2px 4px rgba(255, 255, 255, 0.8),
-inset 0 -3px 6px rgba(0, 0, 0, 0.15),
-0 4px 12px rgba(0, 0, 0, 0.2);
-animation: headTilt 4s ease-in-out infinite;
+  width: 48px;
+  height: 42px;
+  background: linear-gradient(145deg, #f5f7fa, #e8ebf0);
+  border-radius: 50% 50% 45% 45%;
+  position: relative;
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.8),
+              inset 0 -3px 6px rgba(0, 0, 0, 0.15),
+              0 4px 12px rgba(0, 0, 0, 0.2);
+  animation: headTilt 4s ease-in-out infinite;
+  overflow: hidden;
 }
-
 @keyframes headTilt {
-0%, 100% {
-transform: rotate(0deg);
-}
-25% {
-transform: rotate(-3deg);
-}
-75% {
-transform: rotate(3deg);
-}
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
 }
 
-/* Robot Antenna */
+/* === ANTENNA === */
 .robot-antenna {
-width: 3px;
-height: 10px;
-background: linear-gradient(180deg, #cbd5e0, #a0aec0);
-border-radius: 2px;
-position: absolute;
-top: -8px;
-left: 50%;
-transform: translateX(-50%);
-box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+  width: 3px;
+  height: 10px;
+  background: linear-gradient(180deg, #cbd5e0, #a0aec0);
+  border-radius: 2px;
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
 }
-
 .robot-antenna::after {
-content: '';
-position: absolute;
-width: 8px;
-height: 8px;
-background: radial-gradient(circle, #5B9FED, #4A8FDB);
-border-radius: 50%;
-top: -6px;
-left: 50%;
-transform: translateX(-50%);
-box-shadow:
-0 0 12px rgba(91, 159, 237, 0.9),
-0 0 20px rgba(91, 159, 237, 0.5),
-inset 0 1px 2px rgba(255, 255, 255, 0.5);
-animation: antennaGlow 2s ease-in-out infinite;
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #5B9FED, #4A8FDB);
+  border-radius: 50%;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: antennaGlow 2s ease-in-out infinite;
 }
-
 @keyframes antennaGlow {
-0%, 100% {
-box-shadow:
-0 0 12px rgba(91, 159, 237, 0.9),
-0 0 20px rgba(91, 159, 237, 0.5),
-inset 0 1px 2px rgba(255, 255, 255, 0.5);
-}
-50% {
-box-shadow:
-0 0 20px rgba(91, 159, 237, 1),
-0 0 30px rgba(91, 159, 237, 0.8),
-inset 0 1px 2px rgba(255, 255, 255, 0.7);
-}
+  0%, 100% { box-shadow: 0 0 10px #5B9FED, 0 0 20px rgba(91,159,237,0.6); }
+  50% { box-shadow: 0 0 18px #5B9FED, 0 0 35px rgba(91,159,237,0.9); }
 }
 
-/* Robot Visor - 3D Dark Screen */
+/* === VISOR === */
 .robot-visor {
-width: 40px;
-height: 16px;
-background: linear-gradient(145deg, #1e3a5f, #0f1d33);
-border-radius: 8px;
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 8px;
-box-shadow:
-inset 0 2px 6px rgba(0, 0, 0, 0.6),
-inset 0 -1px 2px rgba(255, 255, 255, 0.1),
-0 2px 8px rgba(0, 0, 0, 0.4);
-border: 1px solid rgba(0, 0, 0, 0.3);
+  width: 40px;
+  height: 16px;
+  background: linear-gradient(145deg, #0f1d33, #1b2d4d);
+  border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6),
+              inset 0 -1px 2px rgba(255, 255, 255, 0.1),
+              0 2px 8px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
 }
 
-/* Robot Eyes - Glowing Effect */
+/* === EYES WITH BLINK === */
 .robot-eye {
-width: 6px;
-height: 10px;
-background: linear-gradient(180deg, #6dd5ed, #2193b0);
-border-radius: 3px;
-box-shadow:
-0 0 8px rgba(109, 213, 237, 0.9),
-0 0 15px rgba(109, 213, 237, 0.5),
-inset 0 1px 2px rgba(255, 255, 255, 0.5);
-animation: eyeGlow 2s ease-in-out infinite;
+  width: 6px;
+  height: 10px;
+  background: linear-gradient(180deg, #6dd5ed, #2193b0);
+  border-radius: 3px;
+  animation: eyeGlow 2s ease-in-out infinite, eyeBlink 5s infinite;
 }
-
 @keyframes eyeGlow {
-0%, 100% {
-box-shadow:
-0 0 8px rgba(109, 213, 237, 0.9),
-0 0 15px rgba(109, 213, 237, 0.5),
-inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  0%, 100% { box-shadow: 0 0 8px rgba(109,213,237,0.9), 0 0 15px rgba(109,213,237,0.5); }
+  50% { box-shadow: 0 0 14px rgba(109,213,237,1), 0 0 25px rgba(109,213,237,0.8); }
 }
-50% {
-box-shadow:
-0 0 12px rgba(109, 213, 237, 1),
-0 0 20px rgba(109, 213, 237, 0.8),
-inset 0 1px 3px rgba(255, 255, 255, 0.7);
-}
+@keyframes eyeBlink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  92% { transform: scaleY(0.1); }
+  94% { transform: scaleY(1); }
 }
 
-/* Robot Body/Torso - 3D Effect */
+/* === TORSO === */
 .robot-torso {
-width: 50px;
-height: 35px;
-background: linear-gradient(145deg, #ffffff, #f0f4f8);
-border-radius: 12px 12px 14px 14px;
-position: relative;
-margin-top: -2px;
-box-shadow:
-inset 0 2px 4px rgba(255, 255, 255, 0.8),
-inset 0 -3px 8px rgba(0, 0, 0, 0.15),
-0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 50px;
+  height: 35px;
+  background: linear-gradient(145deg, #ffffff, #f0f4f8);
+  border-radius: 12px 12px 14px 14px;
+  position: relative;
+  margin-top: -2px;
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.8),
+              inset 0 -3px 8px rgba(0,0,0,0.15),
+              0 4px 12px rgba(0,0,0,0.2);
 }
-
-/* Robot Arms - 3D Effect */
-.robot-arm {
-width: 12px;
-height: 28px;
-background: linear-gradient(145deg, #f5f7fa, #e8ebf0);
-border-radius: 6px;
-position: absolute;
-top: 42px;
-box-shadow:
-inset 0 1px 2px rgba(255, 255, 255, 0.6),
-inset 0 -2px 4px rgba(0, 0, 0, 0.15),
-0 2px 6px rgba(0, 0, 0, 0.2);
-}
-
-.robot-arm.left {
-left: -6px;
-animation: armWaveLeft 2.5s ease-in-out infinite;
-transform-origin: top center;
-}
-
-.robot-arm.right {
-right: -6px;
-animation: armWaveRight 2.5s ease-in-out infinite;
-transform-origin: top center;
-}
-
-@keyframes armWaveLeft {
-0%, 100% {
-transform: rotate(0deg);
-}
-50% {
-transform: rotate(-12deg);
-}
-}
-
-@keyframes armWaveRight {
-0%, 100% {
-transform: rotate(0deg);
-}
-50% {
-transform: rotate(12deg);
-}
-}
-
-/* Robot Chest Light */
 .robot-torso::before {
-content: '';
-position: absolute;
-width: 8px;
-height: 8px;
-background: radial-gradient(circle, #10b981, #059669);
-border-radius: 50%;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-box-shadow:
-0 0 8px rgba(16, 185, 129, 0.8),
-inset 0 1px 2px rgba(255, 255, 255, 0.5);
-animation: chestLight 2s ease-in-out infinite;
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #10b981, #059669);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: chestLight 2s ease-in-out infinite;
 }
-
 @keyframes chestLight {
-0%, 100% {
-opacity: 1;
-box-shadow:
-0 0 8px rgba(16, 185, 129, 0.8),
-inset 0 1px 2px rgba(255, 255, 255, 0.5);
-}
-50% {
-opacity: 0.6;
-box-shadow:
-0 0 4px rgba(16, 185, 129, 0.5),
-inset 0 1px 2px rgba(255, 255, 255, 0.3);
-}
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(16,185,129,0.8); }
+  50% { opacity: 0.6; box-shadow: 0 0 4px rgba(16,185,129,0.4); }
 }
 
-/* Hover Effect - Excited Animation */
+/* === ARMS === */
+.robot-arm {
+  width: 12px;
+  height: 28px;
+  background: linear-gradient(145deg, #f5f7fa, #e8ebf0);
+  border-radius: 6px;
+  position: absolute;
+  top: 42px;
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.6),
+              inset 0 -2px 4px rgba(0,0,0,0.15),
+              0 2px 6px rgba(0,0,0,0.2);
+}
+.robot-arm.left {
+  left: -6px;
+  animation: armWaveLeft 2.5s ease-in-out infinite;
+  transform-origin: top center;
+}
+.robot-arm.right {
+  right: -6px;
+  animation: armWaveRight 2.5s ease-in-out infinite;
+  transform-origin: top center;
+}
+@keyframes armWaveLeft {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-12deg); }
+}
+@keyframes armWaveRight {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(12deg); }
+}
+
+/* === HOVER === */
 .chatbot-toggle:hover .chatbot-robot {
-animation: robotFloat 3s ease-in-out infinite, robotExcited 0.6s ease-in-out;
+  animation: robotFloat 3s ease-in-out infinite, robotExcited 0.6s ease-in-out;
 }
-
 @keyframes robotExcited {
-0%, 100% {
-transform: scale(1) translateY(0) translateZ(0);
-}
-25% {
-transform: scale(1.08) translateY(-8px) translateZ(0);
-}
-50% {
-transform: scale(0.95) translateY(0) translateZ(0);
-}
-75% {
-transform: scale(1.05) translateY(-4px) translateZ(0);
-}
+  0%, 100% { transform: scale(1) translateY(0); }
+  25% { transform: scale(1.08) translateY(-8px); }
+  50% { transform: scale(0.95); }
+  75% { transform: scale(1.05) translateY(-4px); }
 }
 
-.chatbot-toggle:hover .robot-eye {
-animation: eyeGlow 2s ease-in-out infinite, eyeExcited 0.5s ease-in-out;
-}
-
-        @keyframes robotExcited {
-
-            0%,
-            100% {
-                transform: scale(1) translateZ(0);
-            }
-
-            25% {
-                transform: scale(1.1) translateY(-5px) translateZ(0);
-            }
-
-            50% {
-                transform: scale(0.95) translateZ(0);
-            }
-
-            75% {
-                transform: scale(1.05) translateY(-3px) translateZ(0);
-            }
-        }
 
         .chatbot-container {
             position: fixed;
